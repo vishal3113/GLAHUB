@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
-            header("location: ../../welcome.php");
+            header("location: ../../userprofile.php");
         }
         else
         {
@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	<link rel="stylesheet" href="../../../css/style.css">
     <style>
         body{
-            background-image:url('https://images.pexels.com/photos/3648850/pexels-photo-3648850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-image:url('../../images/uploads/slider-bg.jpg');
         }
         .login-parent{
             
@@ -75,8 +75,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             border-radius:10px;
             border:solid white 1px;
             padding:20px;
-            margin-left:490px;
-            background-color:black;
+            margin-left:425px;
+            background-color:transparent;
         }
         input{
             padding:5px;

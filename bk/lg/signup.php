@@ -1,6 +1,6 @@
 <?php
 session_start();
-$shoxwAlert = false;
+$showAlert = false;
 $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     <title> SIGNUP || GITHUB</title>
     <style>
         body{
-            background-image:url('https://images.pexels.com/photos/3648850/pexels-photo-3648850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-image:url('../../images/uploads/slider-bg.jpg');
         }
         .login-parent{
             
@@ -54,13 +54,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         section{
             text-align:center;
             margin-top:180px;
-            height:22   0px;
+            height:300px;
             width:450px;
             border-radius:10px;
             border:solid white 1px;
             padding:20px;
-            margin-left:490px;
-            background-color:black;
+            margin-left:390px;
+            background-color:transparent;
         }
         input{
             padding:5px;
@@ -121,6 +121,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             <br>
            <div class="row">
              <button type="submit">sign up</button>
+           </div>
+           <div>
+            <?php if($showAlert==true){ echo"<div style='text-align:center; color:white;'>You are Registerd Into GLAHUB</div?";}
+           
+            ?>
            </div>
         </form>
     </section>
