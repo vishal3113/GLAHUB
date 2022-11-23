@@ -208,7 +208,7 @@ $show=false;
 				<div class="user-information">
 					<div class="user-img">
 						<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a>
-						<a href="#" class="redbtn">Change avatar</a>
+						<a href="#" class="redbtn"><?php echo $_SESSION['username']; ?></a>
 					</div>
 					<div class="user-fav">
 						<p>Account Details</p>
@@ -310,11 +310,12 @@ $show=false;
 								$loggeduser=$_SESSION['username'];
 
 								$UserName=$_POST['username'];
+								$password=$_POST['password'];
 								$Email=$_POST['Email'];
 								$Country=$_POST['Country'];
 								$State=$_POST['State'];
 
-								$update_q="UPDATE users SET username='$UserName' ,Email='$Email',Country='$Country',State='$State' WHERE username='$loggeduser'";
+								$update_q="UPDATE users SET username='$UserName' ,Email='$Email',Country='$Country',password='$password',State='$State' WHERE username='$loggeduser'";
 								$results = mysqli_query($conn,$update_q);
 								if($results){
 									echo "success";
@@ -331,6 +332,10 @@ $show=false;
 							<div class="col-md-6 form-it">
 								<label>Email Address</label>
 								<input type="text" name="Email" >
+							</div>
+							<div class="col-md-6 form-it">
+								<label>Change Password</label>
+								<input type="password" name="password">
 							</div>
 						</div>
 						
