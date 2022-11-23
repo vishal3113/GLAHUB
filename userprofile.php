@@ -1,14 +1,12 @@
 <?php
-$show=false;
+
     session_start();
     if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true)
     {
         header("location: /GLAHUB/GLAHUB-main/bk/lg/login.php");
         exit;
     }
-	else{
-		$show=true;
-	}
+	
 
 // 	if(isset($_POST['Email'])){
 
@@ -116,7 +114,7 @@ $show=false;
 							</a>
 							<ul class="dropdown-menu level1">
 										
-								<li><a href="movielist.html">Motivational Videos</a></li>
+								<li><a href="Motivational.php">Motivational Videos</a></li>
 								<li><a href="moviesingle.html">Educational Videos</a></li>
 								<li class="it-last"><a href="seriessingle.html">Entertainment Videos</a></li>
 							</ul>

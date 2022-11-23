@@ -1,3 +1,12 @@
+<?php
+	session_start();
+    if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true)
+    {
+        header("location: /GLAHUB/GLAHUB-main/bk/lg/login.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7 no-js" lang="en-US">
