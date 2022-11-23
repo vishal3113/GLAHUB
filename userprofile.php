@@ -289,14 +289,48 @@ $show=false;
 			<form action="userprofile.php" Method="post" class="user">
 						<h4>U p d a t e &nbsp;&nbsp; P r o f i l e &nbsp;&nbsp; D e t a i l s </h4>
 						<div class="row">
-							
+							<?php
+								// session_start();
+								if(isset($_POST['username'])){
+								$server = "localhost";
+								$username = "root";
+								$password = "";
+								$database = "users";
+
+								$conn = mysqli_connect($server, $username, $password, $database);
+								if (!$conn){
+									// echo "success";
+								}
+								else{
+									// echo "Database Error";
+									// die("Error". mysqli_connect_error());
+									// echo "<script>alert("Data Saved");</script>;
+									// header("location: ../../index.html");
+								}
+								$loggeduser=$_SESSION['username'];
+
+								$UserName=$_POST['username'];
+								$Email=$_POST['Email'];
+								$Country=$_POST['Country'];
+								$State=$_POST['State'];
+
+								$update_q="UPDATE users SET username='$UserName' ,Email='$Email',Country='$Country',State='$State' WHERE username='$loggeduser'";
+								$results = mysqli_query($conn,$update_q);
+								if($results){
+									echo "success";
+								}
+
+							}
+                        // header('Location:../pages/userProfile.php?success=userUpdated');
+                    // exit;	
+							?>
 							<div class="col-md-6 form-it">
 								<label>Username</label>
-								<input type="text" name="username" placeholder="<?php echo $_SESSION['username'] ?>">
+								<input type="text" name="username" placeholder="">
 							</div>
 							<div class="col-md-6 form-it">
 								<label>Email Address</label>
-								<input type="text" name="Email" placeholder="<?php echo $row['Email'];  ?>">
+								<input type="text" name="Email" >
 							</div>
 						</div>
 						
@@ -304,14 +338,16 @@ $show=false;
 							<div class="col-md-6 form-it">
 								<label>Country</label>
 								<select name="Country">
-								  <option  value="united"> <?php echo $row['Country']; ?></option>
+								<option value="united"> Select</option>
+								  <option  value="India">India</option>
 								  <option value="saab" >Others</option>
 								</select>
 							</div>
 							<div class="col-md-6 form-it">
 								<label>State</label>
 								<select name="State" >
-								  <option value="united"> <?php echo $row['State']; ?></option>
+								  <option value="united"> Select</option>
+								  <option value="India"> india</option>
 								  <option value="saab">Others</option>
 								</select>
 							</div>
