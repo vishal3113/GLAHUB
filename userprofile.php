@@ -233,7 +233,7 @@ $show=false;
 				<div class="form-style-1 user-pro" action="#">
 				
 					<form action="userprofile.php" Method="post" class="user">
-						<h4>01. Profile details</h4>
+						<h4>P r o f i l e &nbsp;&nbsp; d e t a i l s</h4>
 						<div class="row">
 							<?php
 							include 'bk/lg/partial/_dbconnect.php';
@@ -246,6 +246,50 @@ $show=false;
 									while($row=mysqli_fetch_array($gotResuslts)){
 										// print_r($row['username']);
 									?>
+							<div class="col-md-6 form-it">
+								<label>Username</label>
+								<input type="text" style="background-color:black;" name="username" disabled placeholder="<?php echo $_SESSION['username'] ?>">
+							</div>
+							<div class="col-md-6 form-it">
+								<label>Email Address</label>
+								<input style="background-color:black;" type="text" name="Email" disabled placeholder="<?php  echo $row['Email'];  ?>">
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6 form-it">
+								<label>Country</label>
+								<select name="Country" >
+								  <option  value="united"> <?php  echo  $row['Country']?></option>
+								  <option value="saab" disabled >Others</option>
+								</select>
+							</div>
+							<div class="col-md-6 form-it">
+								<label>State</label>
+								<select name="State" >
+								  <option value="united"> <?php echo $row['State']; ?></option>
+								  <option value="saab" disabled	>Others</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<!-- <input class="submit" type="submit" value="save"> -->
+							</div>
+						</div>	
+						<?php
+					}
+				}
+			}
+
+	?>
+<br>
+<br>
+<!-- Update User Details -->
+			<form action="userprofile.php" Method="post" class="user">
+						<h4>U p d a t e &nbsp;&nbsp; P r o f i l e &nbsp;&nbsp; D e t a i l s </h4>
+						<div class="row">
+							
 							<div class="col-md-6 form-it">
 								<label>Username</label>
 								<input type="text" name="username" placeholder="<?php echo $_SESSION['username'] ?>">
@@ -277,13 +321,12 @@ $show=false;
 								<input class="submit" type="submit" value="save">
 							</div>
 						</div>	
-						<?php
-					}
-				}
-			}
-			
-						?>
+						
 					</form>
+					<br>
+					<br>
+					<br>
+					<br>
 					<form action="#" class="password">
 						<h4>02. Change password</h4>
 						<div class="row">
