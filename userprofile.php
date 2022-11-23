@@ -206,7 +206,7 @@
 			<div class="col-md-3 col-sm-12 col-xs-12">
 				<div class="user-information">
 					<div class="user-img">
-						<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a>
+						<a href="#"><img src="images/uploads/user-img.png" style="border-radius:100%; width:100px;" alt=""><br></a>
 						<a href="#" class="redbtn"><?php echo $_SESSION['username']; ?></a>
 					</div>
 					<div class="user-fav">
@@ -371,20 +371,8 @@
 						<h4>02. Change password</h4>
 						<div class="row">
 							<div class="col-md-6 form-it">
-								<label>Old Password</label>
-								<input type="text" placeholder="**********">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6 form-it">
-								<label>New Password</label>
-								<input type="text" placeholder="***************">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6 form-it">
-								<label>Confirm New Password</label>
-								<input type="text" placeholder="*************** ">
+								<label>Upload Your Profile Image </label>
+								<input type="image" name="image" >
 							</div>
 						</div>
 						<div class="row">
