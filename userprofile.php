@@ -1,15 +1,35 @@
 <?php
+$show=false;
     session_start();
     if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true)
     {
         header("location: /GLAHUB/GLAHUB-main/bk/lg/login.php");
         exit;
     }
+	else{
+		$show=true;
+	}
+
+// 	if(isset($_POST['Email'])){
+
+// 		$us=$_SESSION['username'];
+// 	include 'bk/lg/partial/_dbconnect.php';
+// 	// Fetching
 	
-	
+// 	$email=$_POST["Email"];
+// 	$Country=$_POST["Country"];
+// 	$state=$_POST["State"];
+// 	$sl= "UPDATE users.users SET Email='$email',Country='$Country' ,State='$state' WHERE username='$us'";
+// 	$result->$con->query($sl);
+// }	
+// if(!$sl){
+// 	die("Error". mysqli_connect_error());
+// }
+// else{
+// 	echo "success";
+// }
+
 ?>
-
-
 <!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7 no-js" lang="en-US">
@@ -23,7 +43,7 @@
 
 <head>
 	<!-- Basic need -->
-	<title>Open Pediatrics</title>
+	<title>GLA HUB || HOME</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -212,40 +232,42 @@
 			<h1 style="font-size:28px; margin:40px; color:white;">Hy <?php echo $_SESSION['username']; echo ", Welcome to GLAHUB :)"; ?></span></h1> 
 				<div class="form-style-1 user-pro" action="#">
 				
-					<form action="#" class="user">
+					<form action="userprofile.php" Method="post" class="user">
 						<h4>01. Profile details</h4>
 						<div class="row">
+							<?php
+							include 'bk/lg/partial/_dbconnect.php';
+							  $currentUser = $_SESSION['username'];
+							  $sql = "SELECT * FROM users WHERE username ='$currentUser'";
+	  
+							  $gotResuslts = mysqli_query($conn,$sql);
+	  						if($gotResuslts){
+								if(mysqli_num_rows($gotResuslts)>0){
+									while($row=mysqli_fetch_array($gotResuslts)){
+										// print_r($row['username']);
+									?>
 							<div class="col-md-6 form-it">
 								<label>Username</label>
-								<input type="text" placeholder="edwardkennedy">
+								<input type="text" name="username" placeholder="<?php echo $_SESSION['username'] ?>">
 							</div>
 							<div class="col-md-6 form-it">
 								<label>Email Address</label>
-								<input type="text" placeholder="edward@kennedy.com">
+								<input type="text" name="Email" placeholder="<?php echo $row['Email'];  ?>">
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-6 form-it">
-								<label>First Name</label>
-								<input type="text" placeholder="Edward ">
-							</div>
-							<div class="col-md-6 form-it">
-								<label>Last Name</label>
-								<input type="text" placeholder="Kennedy">
-							</div>
-						</div>
+						
 						<div class="row">
 							<div class="col-md-6 form-it">
 								<label>Country</label>
-								<select>
-								  <option value="united">United States</option>
-								  <option value="saab">Others</option>
+								<select name="Country">
+								  <option  value="united"> <?php echo $row['Country']; ?></option>
+								  <option value="saab" >Others</option>
 								</select>
 							</div>
 							<div class="col-md-6 form-it">
 								<label>State</label>
-								<select>
-								  <option value="united">New York</option>
+								<select name="State" >
+								  <option value="united"> <?php echo $row['State']; ?></option>
 								  <option value="saab">Others</option>
 								</select>
 							</div>
@@ -255,6 +277,12 @@
 								<input class="submit" type="submit" value="save">
 							</div>
 						</div>	
+						<?php
+					}
+				}
+			}
+			
+						?>
 					</form>
 					<form action="#" class="password">
 						<h4>02. Change password</h4>
