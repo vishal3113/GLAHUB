@@ -115,8 +115,8 @@
 							<ul class="dropdown-menu level1">
 										
 								<li><a href="Motivational.php">Motivational Videos</a></li>
-								<li><a href="moviesingle.html">Educational Videos</a></li>
-								<li class="it-last"><a href="seriessingle.html">Entertainment Videos</a></li>
+								<li><a href="Educational.php">Educational Videos</a></li>
+								<li class="it-last"><a href="Entertainment.php">Entertainment Videos</a></li>
 							</ul>
 						</li>
 						<li class="dropdown first">
@@ -165,6 +165,7 @@
 						</li>                 -->
 						<li><a href="#">Help</a></li>
 						<li class="btn"><a href="#">My Videos</a></li> &nbsp;&nbsp;
+						<li class="btn"><a href="userprofile.php" style="background-color:green;">My Profile</a></li> &nbsp;&nbsp;
 						<li class="btn"><a href="bk/lg/logout.php">Log Out</a></li>
 					</ul>
 				</div>
