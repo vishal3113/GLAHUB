@@ -1,3 +1,33 @@
+<?php
+
+    session_start();
+    if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true)
+    {
+        header("location: /GLAHUB/GLAHUB-main/bk/lg/login.php");
+        exit;
+    }
+	
+
+// 	if(isset($_POST['Email'])){
+
+// 		$us=$_SESSION['username'];
+// 	include 'bk/lg/partial/_dbconnect.php';
+// 	// Fetching
+	
+// 	$email=$_POST["Email"];
+// 	$Country=$_POST["Country"];
+// 	$state=$_POST["State"];
+// 	$sl= "UPDATE users.users SET Email='$email',Country='$Country' ,State='$state' WHERE username='$us'";
+// 	$result->$con->query($sl);
+// }	
+// if(!$sl){
+// 	die("Error". mysqli_connect_error());
+// }
+// else{
+// 	echo "success";
+// }
+
+?>
 <!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7 no-js" lang="en-US">
@@ -11,7 +41,7 @@
 
 <head>
 	<!-- Basic need -->
-	<title>Open Pediatrics</title>
+	<title>My Videos || <?php echo $_SESSION['username']; ?></title>
 	<meta charset="UTF-8">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -27,21 +57,50 @@
 	<!-- CSS files -->
 	<link rel="stylesheet" href="css/plugins.css">
 	<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/abt_css.css">
-    <style>
-        header{
-            background-color: black;
-        }
-        body{
-    font-family: 'lato', sans-serif;
-    color: #454545;
-    font-weight: 300;
-    background: #ffffff;
-    background-image: url("images/Contact-Us-Background.jpg");
-}
-    </style>
+	<style>
+		label{
+			margin-left:34%;
+			text-align:center;
+			font-size:22px;
+		}
+		form{
+			/* text-align:center; */
+			/* margin-left:40%; */
+			color:red;
+			font-weight:bolder;
+			/* font-size: 22px; */
+			
+		}
+		#chn{
+			border-radius:5px;
+			width:270px;
+			margin-left:40%;
+		}
+		#btn_C{
+			width:100px;
+			text-align:center;
+			margin-left:46%;
+			background-color:red;
+			color:white;
+			border-radius:5px;
+			border:solid white 1px;
+		}
+		#btn_C:hover{
+			width:100px;
+			text-align:center;
+			margin-left:10%;
+			background-color:black;
+			color:white;
+			border-radius:5px;
+			border:solid white 1px;
+		}
+		body{
+			background-color:black;
+		}
+	</style>
 </head>
 <body>
+
 <!--preloading-->
 <!-- <div id="preloader">
     <img class="logo" src="images/logo1.png" alt="" width="119" height="58">
@@ -54,7 +113,11 @@
 
 
 <!-- BEGIN | Header -->
-<header class="ht-header">
+
+
+        
+	
+<header class="ht-header" style="background-color:black;" >
 	<div class="container">
 		<nav class="navbar navbar-default navbar-custom">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -67,7 +130,7 @@
 							<span></span>
 						</div>
 				    </div>
-				    <a href="index.html"><img class="logo" src="./images/logo1.png" alt="" width="119" height="58" style="width:200px;"></a>
+				    <a href="index.html"><img class="logo"  style="width:70px;" src="./images/logo1.png" alt="" width="119" height="58"></a>
 			    </div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
@@ -108,7 +171,7 @@
 							</ul>
 						</li>
 						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown" href="About.html" >
+							<a class="btn btn-default dropdown-toggle lv1" href="About.html" >
 							About Us
 							</a>
 							<!-- <ul class="dropdown-menu level1">
@@ -141,21 +204,22 @@
 							</ul>
 						</li>                 -->
 						<li><a href="#">Help</a></li>
-						<li class=""><a href="bk/lg/login.php">LOG In</a></li>
-						<li class="btn"><a href="bk/lg/signup.php">sign up</a></li>
+						<li class="btn"><a href="#">My Videos</a></li> &nbsp;&nbsp;
+						<li class="btn"><a href="userprofile.php" style="background-color:green;">My Profile</a></li> &nbsp;&nbsp;
+						<li class="btn"><a href="bk/lg/logout.php">Log Out</a></li>
 					</ul>
 				</div>
 			<!-- /.navbar-collapse -->
 	    </nav>
 	    
 	    <!-- top search form -->
-	    <!-- <div class="top-search">
+	    <div class="top-search">
 	    	<select>
 				<option value="united">TV show</option>
 				<option value="saab">Others</option>
 			</select>
 			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-	    </div> -->
+	    </div>
 	</div>
 </header>
 <!-- END | Header -->
@@ -172,104 +236,70 @@
 <br>
 <br>
 <br>
-<div class="container">
-    <div class="section-title">
-        <h1>Our Team</h1>
-    </div>
 
-    <div class="row">
-
-
-        <div class="column">
-            <div class="team">
-                <div class="team-img">
-                    <img src="images/image.png" alt="Team Image">
-                </div>
-                <div class="team-content">
-                    <h2>Vishal <br> Tiwari</h2>
-                    <h3>Developer</h3>
-                    <p>Vishal.tiwari_cs20@gla.ac.in</p>
-                </div>
-               
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="team">
-                <div class="team-img">
-                    <img src="images/devesh.jpeg" alt="Team Image">
-                </div>
-                <div class="team-content">
-                    <h2>Devesh Sharma</h2>
-                    <h3>Developer</h3>
-                    <p>devesh.sharma_cs20@gla.ac.in</p>
-                </div>
-                
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="team">
-                <div class="team-img">
-                    <img src="images/es.jpeg" alt="Team Image">
-                </div>
-                <div class="team-content">
-                    <h2>Esha Agarwal</h2>
-                    <h3>Developer & Management</h3>
-                    <p>esha.agarwal_cs20@gla.ac.in</p>
-                </div>
-               
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="team">
-                <div class="team-img">
-                    <img src="images/image.png" alt="Team Image">
-                </div>
-                <div class="team-content">
-                    <h2>Shivam Singh</h2>
-                    <h3>Content Writer</h3>
-                    <p>shivam.singh1_cs@gla.ac.in</p>
-                </div>
-              
-            </div>
-        </div>
-        <div class="column">
-            <div class="team">
-                <div class="team-img">
-                    <img src="images/image.png" alt="Team Image">
-                </div>
-                <div class="team-content">
-                    <h2>Ansh Malhotra</h2>
-                    <h3>Content Writer</h3>
-                    <p>ansh.malhotra_cs20@gla.ac.in</p>
-                </div>
-              
-            </div>
-        </div>
-
-    </div>
-
+<div>
+	<div>
+		<form action="" id="form">
+		 	<label for="">	C r e a t e &nbsp;&nbsp; Y o u r &nbsp;&nbsp;  C h a n n e l &nbsp;&nbsp;  N o w  </label>
+			&nbsp; 
+			&nbsp; 
+			&nbsp; 
+			
+			<br>
+			&nbsp; 
+			<input type="text" id="chn" placeholder="Enter your Channel Name Here">
+			
+			<br>
+			<button type="submit" id="btn_C" value="save" >Create</button>
+		</form>
+	</div>
 </div>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- footer section-->
 <footer class="ht-footer">
 	<div class="container">
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1">
-				 <a href="index-2.html"><img width="330px"class="logo" src="images/logo1.png" alt=""></a>
+				 <a href="index-2.html"><img class="logo" src="images/logo1.png" alt=""></a>
+				 <p>5th Avenue st, manhattan<br>
+				New York, NY 10001</p>
+				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
 			</div>
 			<div class="flex-child-ft item2">
-				<h4>Quick Links</h4>
+				<h4>Resources</h4>
 				<ul>
-					<li><a href="About.html">About</a></li> 
-					<li><a href="contact.html">Contact Us</a></li>
-					<li><a href="Motivational.php">Motivational</li>
-					<li><a href="Entertainment.php">Entertainment</a></li>
-					<li><a href="Educational.php">Educational</a></li>
+					<li><a href="#">About</a></li> 
+					<li><a href="#">Blockbuster</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">Forums</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Help Center</a></li>
 				</ul>
 			</div>
 			<div class="flex-child-ft item3">
-				
+				<h4>Legal</h4>
+				<ul>
+					<li><a href="#">Terms of Use</a></li> 
+					<li><a href="#">Privacy Policy</a></li>	
+					<li><a href="#">Security</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item4">
+				<h4>Account</h4>
+				<ul>
+					<li><a href="#">My Account</a></li> 
+					<li><a href="#">Watchlist</a></li>	
+					<li><a href="#">Collections</a></li>
+					<li><a href="#">User Guide</a></li>
+				</ul>
 			</div>
 			<div class="flex-child-ft item5">
 				<h4>Newsletter</h4>
@@ -282,15 +312,21 @@
 		</div>
 	</div>
 	<div class="ft-copyright">
+		<div class="ft-left">
+			<p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+		</div>
 		<div class="backtotop">
 			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
 		</div>
 	</div>
 </footer>
+<!-- end of footer section-->
 
 <script src="js/jquery.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/plugins2.js"></script>
-<script src="js/custom.js"></script>
+<script src="js/custom.js"></script>'
 </body>
+
+<!-- userprofile14:04-->
 </html>
