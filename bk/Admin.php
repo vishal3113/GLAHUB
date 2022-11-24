@@ -1,7 +1,14 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true)
+  {
+      header("location: Admin_login.php");
+      exit;
+  }
 
 
 
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +28,7 @@
     <h5  style="text-align:center;">REGISTRATION SUBMISSIONS</h5><br>
     <hr>
     <br>
-    
+    <div style="text-align:right; margin-right:20px;" > <button style="border-radius:5px; background-color:red; color:white;"> <a href="lg/logout.php" style="color:white; text-decoration:none;"> LOG OUT </a></button> </div>
     <br>
     <table class="table">
     <tr>
@@ -67,7 +74,7 @@
 
     echo "
     <tr>
-      <td>".$row["S no"]."</td>
+      <td>".$row["Sno"]."</td>
       <td>".$row["username"]."</td>
       <td>".$row["Email"]."</td>
       <td>".$row["password"]."</td>

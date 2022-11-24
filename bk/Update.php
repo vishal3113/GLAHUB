@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true)
+{
+    header("location: Admin_login.php");
+    exit;
+}
+
 if(isset($_POST['Email'])){
 $server='localhost';
 $username='root';
@@ -30,8 +38,10 @@ else{
         break;
     }
     
-    $successMessage="Client Updated Correctly";
+    // $successMessage="Client Updated Correctly";
+    echo '<script type="text/javascript"> alert("Data Updated !") </script>';
     header("location: Admin.php");
+    
     exit;
   }while(true);
 }
