@@ -8,24 +8,7 @@
     }
 	
 
-// 	if(isset($_POST['Email'])){
 
-// 		$us=$_SESSION['username'];
-// 	include 'bk/lg/partial/_dbconnect.php';
-// 	// Fetching
-	
-// 	$email=$_POST["Email"];
-// 	$Country=$_POST["Country"];
-// 	$state=$_POST["State"];
-// 	$sl= "UPDATE users.users SET Email='$email',Country='$Country' ,State='$state' WHERE username='$us'";
-// 	$result->$con->query($sl);
-// }	
-// if(!$sl){
-// 	die("Error". mysqli_connect_error());
-// }
-// else{
-// 	echo "success";
-// }
 
 ?>
 <!DOCTYPE html>
@@ -90,7 +73,7 @@
 							<span></span>
 						</div>
 				    </div>
-				    <a href="index.html"><img class="logo"  style="width:70px;" src="./images/logo1.png" alt="" width="119" height="58"></a>
+				    <a href="index.html"><img class="logo"  style="width:200px;" src="./images/logo1.png" alt="" width="119" height="58"></a>
 			    </div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
@@ -98,16 +81,7 @@
 						<li class="hidden">
 							<a href="#page-top"></a>
 						</li>
-						<!-- <li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown">
-							Home <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="index-2.html">Home 01</a></li>
-								<li><a href="homev2.html">Home 02</a></li>
-								<li><a href="homev3.html">Home 03</a></li>
-							</ul>
-						</li> -->
+						
 						<li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
 							Videos<i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -141,45 +115,27 @@
 							</ul>
 						</li> -->
 						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" href="Help.html">
+							<a class="btn btn-default dropdown-toggle lv1" href="help_login.html">
 							Contact
 							</a>
-							<!-- <ul class="dropdown-menu level1">
-								<li><a href="userfavoritegrid.html">user favorite grid</a></li>
-								<li><a href="userfavoritelist.html">user favorite list</a></li>
-								<li><a href="userprofile.html">user profile</a></li>
-								<li class="it-last"><a href="userrate.html">user rate</a></li>
-							</ul> -->
+							
 						</li>
 					</ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
-						<!-- <li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							pages <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="landing.html">Landing</a></li>
-								<li><a href="404.html">404 Page</a></li>
-								<li class="it-last"><a href="comingsoon.html">Coming soon</a></li>
-							</ul>
-						</li>                 -->
-						<li><a href="#">Help</a></li>
+						               -->
+						<li><a href="help_login.html">Help</a></li>
 						<li class="btn"><a href="Motivational.php">Explore Videos</a></li> &nbsp;&nbsp;
 						<li class="btn"><a href="userprofile.php" style="background-color:green;">My Profile</a></li> &nbsp;&nbsp;
 						<li class="btn"><a href="bk/lg/logout.php">Log Out</a></li>
 					</ul>
 				</div>
 			<!-- /.navbar-collapse -->
+			
+			
 	    </nav>
-	    
-	    <!-- top search form -->
-	    <div class="top-search">
-	    	<select>
-				<option value="united">TV show</option>
-				<option value="saab">Others</option>
-			</select>
-			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-	    </div>
+		<div>
+				<h1 style="text-align:center;">W e l c o m e &nbsp;&nbsp; T o  &nbsp;&nbsp; G L A H U B &nbsp;&nbsp;  U s e r  &nbsp;&nbsp; D a s h b o a r d  </h1>
+			</div>
 	</div>
 </header>
 <!-- END | Header -->
@@ -268,11 +224,7 @@
 								</select>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-2">
-								<!-- <input class="submit" type="submit" value="save"> -->
-							</div>
-						</div>	
+						
 						<?php
 					}
 				}
