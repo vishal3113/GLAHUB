@@ -1,16 +1,16 @@
 <?php
 session_start();
 $login = false;
-$showError = false;
+// $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    include 'partial\_dbconnect.php';
+    include 'lg/partial/_dbconnect.php';
     $username = $_POST["username"];     
     $password = $_POST["password"];
     
-    $exists=false;  
+    // $exists=false;  
   
-        $sql = "Select * from `users`.`users` where username='$username' AND password='$password'";
+        $sql = "Select * from `users`.`admin_login` where username='$username' AND password='$password'";
         $result = mysqli_query($conn, $sql);
         $num=mysqli_num_rows($result);
         if ($num==1)
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
-            header("location: ../../userprofile.php");
+            header("location: Admin.php");
         }
         else
         {
@@ -58,11 +58,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	<meta name="format-detection" content="telephone-no">
 
 	<!-- CSS files -->
-	<link rel="stylesheet" href="../../../css/plugins.css">
-	<link rel="stylesheet" href="../../../css/style.css">
+	<link rel="stylesheet" href="../css/plugins.css">
+	<link rel="stylesheet" href="../css/style.css">
     <style>
         body{
-            background-image:url('../../images/uploads/slider-bg.jpg');
+            background-image:url('../images/uploads/slider-bg.jpg');
         }
         .login-parent{
             
@@ -111,21 +111,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <body>
     <span > <a href="../../index.html" style="color:white;">Home </a><span style="color:white;"> > Login</span></span>
     <section>
-            <h1> <span style="color:white; font-weight:20px;">Login &nbsp;</span> <span style="color: red;"> GLAHUB</span></h1>
+            <h1> <span style="color:white; font-weight:20px;">ADMIN &nbsp;</span> <span style="color: red;"> LOGIN</span></h1>
             <br>
             
-            <form method="post" action="login.php">
+            <form method="post" action="#">
                 <div class="row">
                     <label for="username">
-                        Username :
+                     
                         <input type="text" name="username" id="username" placeholder="Username"  required="required" />
                     </label>
                 </div>
                 <br>
                 <div class="row">
                     <label for="password">
-                        Password :
-                        <input type="password" name="password" id="password" placeholder="* * * * * *"  required="required" />
+                       
+                        <input type="password" name="password" id="password" placeholder="Password"  required="required" />
                     </label>
                 </div>
                 <br>
@@ -135,7 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 <br>
                 <br>
             </div>
-            <div style="text-align:center; color:white;">To Create an Account, <a href="signup.php" style="color:red;" >Signup</a></div>
+            <!-- <div style="text-align:center; color:white;">To Create an Account, <a href="signup.php" style="color:red;" >Signup</a></div> -->
             </form>
 
     </section>

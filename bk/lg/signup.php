@@ -127,6 +127,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
            
             ?>
            </div>
+           <br>
+           <div style="text-align:center; color:white;">To Login into an Account, <a href="login.php" style="color:red;" >Login</a></div>
         </form>
     </section>
 </body>
