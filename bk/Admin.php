@@ -29,36 +29,51 @@
       <th>Name</th>
       <th>Email</th>
       <th>Password</th>
+      <th>Country</th>
+      <th>State</th>
       <th>Operation</th>
     </tr>
     <?php
-  $server='localhost';
-  $username='root';
-  $password='';
-  $database='admin_work';
+  
 
   // Database connnection
-  $conn=mysqli_connect($server,$username,$password,$database);
+  // $conn=mysqli_connect($server,$username,$password,$database);
   
-  if(!$conn){
-    echo "Not Yet connnected With the Database";
-  }
-  else{
+  
+
     // Database Query 
-    $sql="SELECT * FROM registration";
+   
+  $server = "localhost";
+  $username = "root";
+  $password = "";
+  $database = "users";
+  
+  $conn = mysqli_connect($server, $username, $password, $database);
+  if (!$conn){
+     // echo "Database Error";
+      // die("Error". mysqli_connect_error());
+      
+   }
+
+      
+  
+    $sql="SELECT * FROM users";
     $result=$conn->query($sql);  
     if(!$result){
       die ("Invalid Query" . $conn->error);
     }
-
+    
     while($row=$result->fetch_assoc()){
 
     echo "
     <tr>
-      <td>".$row["SNo"]."</td>
-      <td>".$row["Name"]."</td>
+      <td>".$row["S no"]."</td>
+      <td>".$row["username"]."</td>
       <td>".$row["Email"]."</td>
-      <td>".$row["Password"]."</td>
+      <td>".$row["password"]."</td>
+      <td>".$row["Country"]."</td>
+      <td>".$row["State"]."</td>
+      
       
       <td>
         <a class='btn btn-primary btn-sm' href='update.php'>Update</a>
@@ -66,8 +81,9 @@
       </td>
     </tr>
     ";
-    }
-  }
+}
+
+
 
 ?>
 

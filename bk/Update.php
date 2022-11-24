@@ -1,28 +1,27 @@
 <?php
-if(isset($_POST['Name'])){
+if(isset($_POST['Email'])){
 $server='localhost';
 $username='root';
 $password='';
-$database='admin_work';
+$database='users';
 $connect=mysqli_connect($server,$username,$password,$database);
 if(!$connect){
   echo "DB Not Connected";
   die(mysqli_connect_error());
 }
 else{
- 
-  $name=$_POST["Name"];
+  include 'lg/partial/_dbconnect.php';
+  $name=$_POST["username"];
   $email=$_POST["Email"];
-  $password=$_POST["Password"];
-//   echo "db connected";
+  $Country=$_POST["Country"];
+  $State=$_POST["State"];
+  $password=$_POST["password"];
+  // echo "db connected";
   // Database Query
   
   do{
-    if(empty($name)||empty($email)||empty($password)){
-        $errorMessage="All the Fields are Required";
-        break;
-    }
-    $sql= "UPDATE registration SET Email='$email',Password='$password' WHERE Name='$name'";
+    
+    $sql= "UPDATE users SET Email='$email', Country='$Country',State='$State',password='$password' WHERE username='$name'";
     $result=$connect->query($sql);
 
     if(!$result)
@@ -32,10 +31,8 @@ else{
     }
     
     $successMessage="Client Updated Correctly";
-    // header("location: Admin.php");
+    header("location: Admin.php");
     exit;
-
-
   }while(true);
 }
 }
@@ -92,7 +89,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
-                            <input type="text" id="form3Example1c" name="Name" class="form-control" />
+                            <input type="text" id="form3Example1c" name="username" class="form-control" />
                             <label class="form-label" for="form3Example1c">Your Name</label>
                           </div>
                         </div>
@@ -108,37 +105,54 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4c" name="Password" class="form-control" />
+                            <input type="password" id="form3Example4c" name="password" class="form-control" />
                             <label class="form-label" for="form3Example4c">Password</label>
                           </div>
                         </div>
-      
-                        <!-- <div class="d-flex flex-row align-items-center mb-4">
-                          <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                        
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4cd" class="form-control" />
-                            <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                            <input type="text" id="form3Example4c" name="Country" class="form-control" />
+                            <label class="form-label" for="form3Example4c">Country</label>
                           </div>
-                        </div> -->
-      
-                        <!-- <div class="form-check d-flex justify-content-center mb-5">
-                          <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                          <label class="form-check-label" for="form2Example3">
-                            I agree all statements in <a href="#!">Terms of service</a>
-                          </label>
-                        </div> -->
+                        </div>
+
+                        
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <input type="text" id="form3Example4c" name="State" class="form-control" />
+                            <label class="form-label" for="form3Example4c">State</label>
+                          </div>
+                        </div>
+        
+                          <!-- <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                            <div class="form-outline flex-fill mb-0">
+                              <input type="password" id="form3Example4cd" class="form-control" />
+                              <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                            </div>
+                          </div> -->
+        
+                          <!-- <div class="form-check d-flex justify-content-center mb-5">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                            <label class="form-check-label" for="form2Example3">
+                              I agree all statements in <a href="#!">Terms of service</a>
+                            </label>
+                          </div> -->
       
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button type="submit"  class="btn btn-primary btn-lg">Update</button>
                         </div>
                         
                       </form>
-      
-                    </div>
-                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-      
-                      <!-- <img src="https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png" -->
-                        <!-- class="img-fluid" alt="Sample image" style="border-radius:20px;" > -->
+          
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+          
+                            <!-- <img src="https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png" -->
+                            <!-- class="img-fluid" alt="Sample image" style="border-radius:20px;" > -->
       
                     </div>
                   </div>
