@@ -141,7 +141,7 @@
 							</ul>
 						</li> -->
 						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							<a class="btn btn-default dropdown-toggle lv1" href="Help.html">
 							Contact
 							</a>
 							<!-- <ul class="dropdown-menu level1">
@@ -164,7 +164,7 @@
 							</ul>
 						</li>                 -->
 						<li><a href="#">Help</a></li>
-						<li class="btn"><a href="#">My Videos</a></li> &nbsp;&nbsp;
+						<li class="btn"><a href="Motivational.php">Explore Videos</a></li> &nbsp;&nbsp;
 						<li class="btn"><a href="userprofile.php" style="background-color:green;">My Profile</a></li> &nbsp;&nbsp;
 						<li class="btn"><a href="bk/lg/logout.php">Log Out</a></li>
 					</ul>
@@ -212,16 +212,13 @@
 					<div class="user-fav">
 						<p>Account Details</p>
 						<ul>
-							<li  class="active"><a href="userprofile.html">Profile</a></li>
-							<li><a href="userfavoritelist.html">Favorite movies</a></li>
-							<li><a href="userrate.html">Rated movies</a></li>
-						</ul>
+							<li  class="active"><a href="userprofile.php">Profile</a></li>
 					</div>
 					<div class="user-fav">
 						<p>Others</p>
 						<ul>
 							<li><a href="#">Change password</a></li>
-							<li><a href="#">Log out</a></li>
+							<li><a href="bk/lg/logout.php">Log out</a></li>
 						</ul>
 					</div>
 				</div>
@@ -282,9 +279,11 @@
 			}
 
 	?>
-<br>
+
 <br>
 <!-- Update User Details -->
+<hr>
+<br>
 			<form action="userprofile.php" Method="post" class="user">
 						<h4>U p d a t e &nbsp;&nbsp; P r o f i l e &nbsp;&nbsp; D e t a i l s </h4>
 						<div class="row">
@@ -356,6 +355,7 @@
 								</select>
 							</div>
 						</div>
+						<br>
 						<div class="row">
 							<div class="col-md-2">
 								<input class="submit" type="submit" value="save">
@@ -364,23 +364,7 @@
 						
 					</form>
 					<br>
-					<br>
-					<br>
-					<br>
-					<form action="#" class="password">
-						<h4>02. Change password</h4>
-						<div class="row">
-							<div class="col-md-6 form-it">
-								<label>Upload Your Profile Image </label>
-								<input type="image" name="image" >
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-2">
-								<input class="submit" type="submit" value="change">
-							</div>
-						</div>	
-					</form>
+					
 				</div>
 			</div>
 		</div>
