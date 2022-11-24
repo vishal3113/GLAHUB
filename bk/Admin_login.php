@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     </style>
 </head>
 <body>
-    <span > <a href="../../index.html" style="color:white;">Home </a><span style="color:white;"> > Login</span></span>
+    <span > <a href="../index.html" style="color:white;">Home </a><span style="color:white;"> > Login</span></span>
     <section>
             <h1> <span style="color:white; font-weight:20px;">ADMIN &nbsp;</span> <span style="color: red;"> LOGIN</span></h1>
             <br>
