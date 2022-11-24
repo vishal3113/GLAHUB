@@ -135,8 +135,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 <br>
                 <br>
             </div>
+            <div style="text-align:center; color:white;">To Create an Account, <a href="signup.php" style="color:red;" >Signup</a></div>
             </form>
-    
+
     </section>
  </body>
  </html>
