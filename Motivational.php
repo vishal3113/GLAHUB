@@ -184,15 +184,9 @@
 							</ul>
 						</li>
 						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							celebrities <i class="fa fa-angle-down" aria-hidden="true"></i>
+						<a class="btn btn-default dropdown-toggle lv1" href="Educational.php" >
+							Study Content
 							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="celebritygrid01.html">Motivatinal celebrities</a></li>
-								<li><a href="celebritygrid02.html">Educational celebrities</a></li>
-								<li><a href="celebritylist.html">Entertainment celebrities</a></li>
-								<!-- <li class="it-last"><a href="celebritysingle.html">celebrity single</a></li> -->
-							</ul>
 						</li>
 						<li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" href="About.html" >
