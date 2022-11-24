@@ -43,23 +43,6 @@
 
 </head>
 <body>
-
-<!--preloading-->
-<!-- <div id="preloader">
-    <img class="logo" src="images/logo1.png" alt="" width="119" height="58">
-    <div id="status">
-        <span></span>
-        <span></span>
-    </div>
-</div> -->
-<!--end of preloading-->
-
-
-<!-- BEGIN | Header -->
-
-
-        
-	
 <header class="ht-header">
 	<div class="container">
 		<nav class="navbar navbar-default navbar-custom">
@@ -116,7 +99,7 @@
 						</li>
 					</ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
-						               -->
+						              
 						<li><a href="help_login.html">Help</a></li>
 						<li class="btn"><a href="Motivational.php">Explore Videos</a></li> &nbsp;&nbsp;
 						<li class="btn"><a href="userprofile.php" style="background-color:green;">My Profile</a></li> &nbsp;&nbsp;
