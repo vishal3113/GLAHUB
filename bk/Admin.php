@@ -1,7 +1,14 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true)
+  {
+      header("location: Admin_login.php");
+      exit;
+  }
 
 
 
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +28,7 @@
     <h5  style="text-align:center;">REGISTRATION SUBMISSIONS</h5><br>
     <hr>
     <br>
-    
+    <div style="text-align:right; margin-right:20px;" > <button style="border-radius:5px; background-color:red; color:white;"> <a href="lg/logout.php" style="color:white; text-decoration:none;"> LOG OUT </a></button> </div>
     <br>
     <table class="table">
     <tr>
@@ -29,36 +36,51 @@
       <th>Name</th>
       <th>Email</th>
       <th>Password</th>
+      <th>Country</th>
+      <th>State</th>
       <th>Operation</th>
     </tr>
     <?php
-  $server='localhost';
-  $username='root';
-  $password='';
-  $database='admin_work';
+  
 
   // Database connnection
-  $conn=mysqli_connect($server,$username,$password,$database);
+  // $conn=mysqli_connect($server,$username,$password,$database);
   
-  if(!$conn){
-    echo "Not Yet connnected With the Database";
-  }
-  else{
+  
+
     // Database Query 
-    $sql="SELECT * FROM registration";
+   
+  $server = "localhost";
+  $username = "root";
+  $password = "";
+  $database = "users";
+  
+  $conn = mysqli_connect($server, $username, $password, $database);
+  if (!$conn){
+     // echo "Database Error";
+      // die("Error". mysqli_connect_error());
+      
+   }
+
+      
+  
+    $sql="SELECT * FROM users";
     $result=$conn->query($sql);  
     if(!$result){
       die ("Invalid Query" . $conn->error);
     }
-
+    
     while($row=$result->fetch_assoc()){
 
     echo "
     <tr>
-      <td>".$row["SNo"]."</td>
-      <td>".$row["Name"]."</td>
+      <td>".$row["Sno"]."</td>
+      <td>".$row["username"]."</td>
       <td>".$row["Email"]."</td>
-      <td>".$row["Password"]."</td>
+      <td>".$row["password"]."</td>
+      <td>".$row["Country"]."</td>
+      <td>".$row["State"]."</td>
+      
       
       <td>
         <a class='btn btn-primary btn-sm' href='update.php'>Update</a>
@@ -66,8 +88,9 @@
       </td>
     </tr>
     ";
-    }
-  }
+}
+
+
 
 ?>
 

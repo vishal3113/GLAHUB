@@ -1,15 +1,23 @@
 <?php
-if(isset($_POST['id'])){
-include_once "Database.php";
-$id=$_POST['id'];
-$sql = "DELETE FROM `registration` WHERE `SNo`='$id'";
+
+session_start();
+if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true)
+{
+    header("location: Admin_login.php");
+    exit;
+}
+
+if(isset($_POST['Sno'])){
+include 'lg/partial/_dbconnect.php';
+$id=$_POST['Sno'];
+$sql = "DELETE FROM users WHERE Sno='$id'";
 $result=$conn->query($sql);
 if(!$result){
     echo "Invaid Query".mysqli_connect_error();
 }
 else{
     // echo "Deleted";
-    header("location: /CRUD/Admin.php");
+    header("location: Admin.php");
 }
 }
 
@@ -23,9 +31,9 @@ else{
     <title>Delete a Record</title>
 </head>
 <body>
-    <form action="Delete.php" method="post">
+    <form action="#" method="post">
         <div style="margin-left:250px; margin-top:10%;">
-            <label for="ID">Enter Id Number To Delete a Record :</label>   <input type="Number" name="id" style="text-align:Center; width:500px; border-radius:5px;" placeholder="Enter ID Number to Delete a Record" ><br>
+            <label for="ID">Enter Id Number To Delete a Record :</label>   <input type="Number" name="Sno" style="text-align:Center; width:500px; border-radius:5px;" placeholder="Enter ID Number to Delete a Record" ><br>
             <br>
             <br>
             <button style="margin-left:400px;" type="submit" name="Delete">Delete</button>
